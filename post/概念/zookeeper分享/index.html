@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - 张均杰笔记本</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bsworld" /><meta name="description" content="Zookeeper 分享 Zookeeper介绍 Zookeeper是什么？ Zookeeper是一个分布式应用协调框架，在分布式系统架构中有广泛的应用场景。 Zoo" /><meta name="keywords" content="Mac, Github, Vue, React, Front End" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%A6%82%E5%BF%B5/zookeeper%E5%88%86%E4%BA%AB/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/reset-even.css">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Zookeeper 分享 Zookeeper介绍 Zookeeper是什么？ Zookeeper是一个分布式应用协调框架，在分布式系统架构中有广泛的应用场景。 Zoo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%A6%82%E5%BF%B5/zookeeper%E5%88%86%E4%BA%AB/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Zookeeper 分享 Zookeeper介绍 Zookeeper是什么？ Zookeeper是一个分布式应用协调框架，在分布式系统架构中有广泛的应用场景。 Zoo">
+
+<meta itemprop="wordCount" content="2053">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Zookeeper 分享 Zookeeper介绍 Zookeeper是什么？ Zookeeper是一个分布式应用协调框架，在分布式系统架构中有广泛的应用场景。 Zoo"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">张均杰笔记本</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a><a href="https://github.com/abxworld/abxworld.github.io">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">张均杰笔记本</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/abxworld/abxworld.github.io">阅读清单</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 00:00 </span>
+        
+          <span class="more-meta"> 约 2053 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zookeeper介绍">Zookeeper介绍</a>
+      <ul>
+        <li><a href="#zookeeper是什么">Zookeeper是什么？</a></li>
+        <li><a href="#zookeeper能用来干什么">Zookeeper能用来干什么？</a></li>
+        <li><a href="#zookeeper基本概念">Zookeeper基本概念</a></li>
+      </ul>
+    </li>
+    <li><a href="#zookeeper典型应用场景">Zookeeper典型应用场景</a>
+      <ul>
+        <li><a href="#配置中心">配置中心</a></li>
+        <li><a href="#分布式锁">分布式锁</a></li>
+        <li><a href="#注册中心">注册中心</a></li>
+        <li><a href="#选主">选主</a></li>
+      </ul>
+    </li>
+    <li><a href="#zookeeper原理简述">Zookeeper原理简述</a>
+      <ul>
+        <li><a href="#zab协议">ZAB协议</a></li>
+        <li><a href="#leader选举">Leader选举</a></li>
+        <li><a href="#请求处理">请求处理</a></li>
+        <li><a href="#数据存储">数据存储</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="0001-01-01T00:00:00" title="January 1, 0001">January 1, 0001</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="zookeeper-分享">Zookeeper 分享</h1>
+<h2 id="zookeeper介绍">Zookeeper介绍</h2>
+<h3 id="zookeeper是什么">Zookeeper是什么？</h3>
+<p>Zookeeper是一个分布式应用协调框架，在分布式系统架构中有广泛的应用场景。</p>
+<h3 id="zookeeper能用来干什么">Zookeeper能用来干什么？</h3>
+<ol>
+<li>配置中心，如到家的鲁班系统</li>
+<li>分布式锁</li>
+<li>注册中心，Dubbo的注册中心</li>
+<li>Master选举</li>
+<li>&hellip;.</li>
+</ol>
+<h3 id="zookeeper基本概念">Zookeeper基本概念</h3>
+<p>Zookeeper有几个关键概念，数据模型、集群角色、版本、Watcher、ACL。</p>
+<h4 id="zoocfg">zoo.cfg</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 我理解为时间基数，单位是毫秒，后面和时间有关的参数都要乘以tickTime
+tickTime=2000  
+# Leader允许Follower启动时在initLimit时间内完成数据同步，单位：tickTime
+initLimit=10
+# Leader发送心跳包给集群中所有Follower，若Follower在syncLimit时间内没有响应，那么Leader就认为该follower已经挂掉了，单位：tickTime
+syncLimit=5
+# 配置ZK的数据目录 还有个专门配置日志目录的参数，dataLogDir，可以不配，不配的话默认把日志存在数据目录
+# 如果是集群配置需要创建myid文件 并在文件内写入编号
+dataDir=/tmp/zooeeper
+# 客户端连接端口
+clientPort=2181
+
+# 指定集群中服务器
+# 端口1：用于数据同步
+# 端口2：用于leader选举
+server.1=localhost:2880:3881
+server.2=localhost:2882:3883
+server.3=localhost:2884:3885
+
+
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="数据模型">数据模型</h4>
+<p><img src="../../static/Untitled/2019122122093254.png" alt="ZooKeeper层次数据模型实例"></p>
+<p>Zookeeper的数据模型是层次模型，层次模型常见于文件系统。Zookeeper的层次模称作Data Tree是一个树形结构，每个节点叫做ZNode，每个ZNode都可以存储数据，并且有自己的Version。</p>
+<p><strong>ZNode节点类型：</strong></p>
+<ol>
+<li>持久化节点</li>
+<li>临时节点</li>
+<li>持久化有序节点</li>
+<li>临时有序节点</li>
+<li>容器节点 <strong>3.5.5版本特性</strong></li>
+<li>TTL节点  <strong>3.5.5版本特性</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataNode</span> <span class="kd">implements</span> <span class="n">Record</span> <span class="o">{</span>
+    <span class="n">DataNode</span> <span class="n">parent</span><span class="o">;</span> <span class="c1">// 父节点
+</span><span class="c1"></span>    <span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">;</span> <span class="c1">// 数据
+</span><span class="c1"></span>    <span class="n">Long</span> <span class="n">acl</span><span class="o">;</span> <span class="c1">// 权限
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">StatPersisted</span> <span class="n">stat</span><span class="o">;</span> <span class="c1">// 节点状态类 很重要
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">children</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// 子节点
+</span><span class="c1"></span><span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StatPersisted</span> <span class="kd">implements</span> <span class="n">Record</span> <span class="o">{</span>
+    <span class="c1">// zxid是全局递增的事务ID
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">long</span> <span class="n">czxid</span><span class="o">;</span> <span class="c1">// 节点创建的zxid
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">long</span> <span class="n">mzxid</span><span class="o">;</span> <span class="c1">// 节点最后更新的zxid
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">long</span> <span class="n">ctime</span><span class="o">;</span> <span class="c1">// 节点创建时间
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">long</span> <span class="n">mtime</span><span class="o">;</span> <span class="c1">// 节点更新时间
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">version</span><span class="o">;</span> <span class="c1">// 节点版本 做CAS乐观锁操作用
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">cversion</span><span class="o">;</span>  <span class="c1">// 子节点版本
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">aversion</span><span class="o">;</span> <span class="c1">// 节点的ACL版本
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">long</span> <span class="n">ephemeralOwner</span><span class="o">;</span> <span class="c1">// 创建临时节点的sessionID，临时节点才会用这个属性
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">long</span> <span class="n">pzxid</span><span class="o">;</span> <span class="c1">// 子节点目录最后被更新的zxid，子节点数据更新这个值不变
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="集群角色">集群角色</h4>
+<p><img src="../../static/Untitled/2084.jpeg" alt="Zookeeper的原理和架构设计，以及应用场景-mikechen的互联网架构师之路"></p>
+<ol>
+<li>Leader。zookeeper集群内只能有一个leader，只有leader负责写操作。</li>
+<li>Follower。参与选举流程。</li>
+<li>Observer。不参与选举。目的为了提高读取速度。数据只存内存内，不写入磁盘。</li>
+</ol>
+<h4 id="wathcher">Wathcher</h4>
+<p>Zookeeper可以在节点或目录上注册Watcher，就是监听器，当节点或目录发生变化会发送通知给注册了Watcher的客户端，如目录增加或删除子节点、节点数据变更、Session断链等。</p>
+<p><strong>注：低版本的Zookeeper的监听都是一次性的，监听触发一次后就会失效，需要循环注册。3.6.0后支持永久监听。</strong></p>
+<h4 id="acl">ACL</h4>
+<p>ACL负责Zookeeper的权限控制，Zookeeper可以给节点加各种权限，客户端有权限才可以操作节点。</p>
+<h2 id="zookeeper典型应用场景">Zookeeper典型应用场景</h2>
+<h3 id="配置中心">配置中心</h3>
+<p>咱们的鲁班配置中心就是用Zookeeper实现的，利用Watcher特性来实现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">				<span class="c1">// sessionTimeOut 是会话超时时间 在会话超时时间内 客户端没有重新连接到任何服务器 就会自动关闭。
+</span><span class="c1"></span>				<span class="n">ZooKeeper</span> <span class="n">zooKeeper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZooKeeper</span><span class="o">(</span><span class="s">&#34;localhost:2181&#34;</span><span class="o">,</span> <span class="n">20000</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+				
+			  <span class="c1">// 监听器
+</span><span class="c1"></span>        <span class="n">Watcher</span> <span class="n">watcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Watcher</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="n">WatchedEvent</span> <span class="n">watchedEvent</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">watchedEvent</span><span class="o">.</span><span class="na">getType</span><span class="o">()</span> <span class="o">==</span> <span class="n">Event</span><span class="o">.</span><span class="na">EventType</span><span class="o">.</span><span class="na">NodeDataChanged</span>
+                        <span class="o">&amp;&amp;</span> <span class="n">watchedEvent</span><span class="o">.</span><span class="na">getPath</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;/cutOrder/test&#34;</span><span class="o">))</span> <span class="o">{</span>
+                  	<span class="c1">// 通知消息不会携带新数据 需要自己获取。
+</span><span class="c1"></span>                    <span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="n">zooKeeper</span><span class="o">.</span><span class="na">getData</span><span class="o">(</span><span class="s">&#34;/cutOrder/test&#34;</span><span class="o">,</span> <span class="k">this</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="n">zooKeeper</span><span class="o">.</span><span class="na">getData</span><span class="o">(</span><span class="s">&#34;/cutOrder/test&#34;</span><span class="o">,</span> <span class="n">watcher</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="分布式锁">分布式锁</h3>
+<p>利用临时顺序节点特性来实现分布式锁。</p>
+<p><img src="../../static/Untitled/17a8e056e99e4fc4a93cb43e098e31f9~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"><strong>注意：</strong></p>
+<p><img src="../../static/Untitled/a0ddde65502d47afb725250793ea599b~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p><strong>羊群效应 &amp; 幽灵节点。</strong></p>
+<h3 id="注册中心">注册中心</h3>
+<h3 id="选主">选主</h3>
+<h2 id="zookeeper原理简述">Zookeeper原理简述</h2>
+<p><img src="../../static/Untitled/image-20210528035231865.png" alt="image-20210528035231865"></p>
+<h3 id="zab协议">ZAB协议</h3>
+<p>ZAB 协议是为分布式协调服务 Zookeeper 专门设计的一种支持 <strong>崩溃恢复</strong> 和 <strong>原子广播</strong> 协议。Zookeeper用此协议完成故障恢复 &amp; 最终一致性。</p>
+<p>​				 	<img src="../../static/Untitled/image-20210528114443466.png" alt="image-20210528114443466"></p>
+<p>​</p>
+<h3 id="leader选举">Leader选举</h3>
+<h4 id="zookeeper-server的状态">Zookeeper Server的状态</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">enum</span> <span class="n">ServerState</span> <span class="o">{</span>
+      <span class="n">LOOKING</span><span class="o">,</span> <span class="c1">// Server的默认状态 寻找leader中
+</span><span class="c1"></span>      <span class="n">FOLLOWING</span><span class="o">,</span> <span class="c1">// 对应节点Follower
+</span><span class="c1"></span>      <span class="n">LEADING</span><span class="o">,</span>  <span class="c1">// 对应节点Leader
+</span><span class="c1"></span>      <span class="n">OBSERVING</span><span class="o">;</span> <span class="c1">// 对应节点Observer  不参与选举
+</span><span class="c1"></span>  
+      <span class="kd">private</span> <span class="nf">ServerState</span><span class="o">()</span> <span class="o">{</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="leader选举触发时机">leader选举触发时机</h4>
+<p>1.启动时leader的选举
+2.leader崩溃时的选举
+3.leader不能与过半的Follower保持通信</p>
+<h4 id="选票结构">选票结构</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">Vote</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">,</span> <span class="kt">long</span> <span class="n">zxid</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span> <span class="c1">// myid
+</span><span class="c1"></span>    <span class="k">this</span><span class="o">.</span><span class="na">zxid</span> <span class="o">=</span> <span class="n">zxid</span><span class="o">;</span> <span class="c1">// 事务ID |--- 32bit 任期 ---|-- 32bit 事务计数器 --|
+</span><span class="c1"></span>    <span class="k">this</span><span class="o">.</span><span class="na">electionEpoch</span> <span class="o">=</span> <span class="o">-</span><span class="n">1L</span><span class="o">;</span> <span class="c1">// 选票轮次 每次新投票都+1
+</span><span class="c1"></span>    <span class="k">this</span><span class="o">.</span><span class="na">peerEpoch</span> <span class="o">=</span> <span class="o">-</span><span class="n">1L</span><span class="o">;</span> <span class="c1">// 被推举的Leader的epoch
+</span><span class="c1"></span>    <span class="k">this</span><span class="o">.</span><span class="na">state</span> <span class="o">=</span> <span class="n">ServerState</span><span class="o">.</span><span class="na">LOOKING</span><span class="o">;</span> <span class="c1">// 当前服务器的状态
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="选票pk规则">选票PK规则</h4>
+<p>1.比较选举轮次，比自己大的话，就清空自己票箱。
+2.比较zxid，zxid大的票胜出。
+2.如果zxid相等，比较myid，myid大的胜出。</p>
+<h4 id="选举流程">选举流程</h4>
+<ol>
+<li>每个Server启动后会创建一张选票，选票内容是投给自己的。并广播给集群内的其他Follower包括自己。</li>
+<li>按选票规则PK，如果PK失败，改变自己的票。</li>
+<li>统计集群内的票。找出票数大于一半的Server，并设置为leader。如果没有Server票数大于一半，就继续1和2。</li>
+<li>找到leader后其他Server变为follower，不包含Observer。</li>
+</ol>
+<p><img src="../../static/Untitled/image-20210528045122371.png" alt="image-20210528045122371"></p>
+<h3 id="请求处理">请求处理</h3>
+<h3 id="数据存储">数据存储</h3>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">bsworld</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%A6%82%E5%BF%B5/Redis%E4%B8%8EMysql%E5%8F%8C%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88%E8%A7%A3%E6%9E%90/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%A6%82%E5%BF%B5/%E5%91%A8%E4%BC%9A%E5%86%85%E5%AE%B9/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="bsworldx@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/abxworld/abxworld.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bsworld</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

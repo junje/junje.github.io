@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>张均杰笔记本</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on 张均杰笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    
+	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>Hugo is a static site engine written in Go.
+It makes use of a variety of open source projects including:
+ Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/LRU%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/LRU%E7%BC%93%E5%AD%98/</guid>
+      <description>LRU缓存 题目描述 设计和实现一个 LRU (最近最少使用) 缓存机制 。 要求：get set O(1) 时间复杂度。 题目解析 Map 加 双向链表解决，主要考察链表删除节点和增加</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>二叉树的中序遍历 题目描述 给你二叉树的根节点 root ，返回它节点值的 中序 遍历。 题目解析 此题可以用2种解法： 第一种是递归，递归很好理解，首先创建一个存</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>二叉树的前序遍历 题目描述 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。 题目解析 此题可以用2种解法： 第一种是递归，递归很好理解，首先创建一个存</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>二叉树的后序遍历 题目描述 给你二叉树的根节点 root ，返回它节点值的 后序 遍历。 题目解析 此题可以用2种解法： 第一种是递归，递归很好理解，首先创建一个存</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>二叉树的层序遍历 题目描述 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。 示例： 二叉树：[3,9,20,</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E4%BA%8C%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%BA%8C%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>二数之和 题目描述 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。 你可以假设每</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
+      <description>删除链表倒数第N个节点 题目描述 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。 进阶：你能尝试使用一趟扫描实现吗？ 示例 1： 1 2 输</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>反转链表 题目描述 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。 示例: 1 2 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL 输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL 题目解析 用双指针解决此题，</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</guid>
+      <description>合并两个有序数组 题目描述 给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。 初始化 nums1 和 nums2 的元素数量分别为 m 和 n 。你</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>合并两个有序链表 题目描述 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 示例 1： 1 2 输入：l1 =</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9/</guid>
+      <description>寻找两个链表第一公共节点 题目描述 输入两个链表，找出它们的第一个公共节点。 如下面的两个链表**：** 在节点 c1 开始相交。 示例 1： 1 2 3 输入：in</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%B2%9B%E5%B1%BF%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%B2%9B%E5%B1%BF%E4%B8%AA%E6%95%B0/</guid>
+      <description>岛屿个数 题目描述 给你一个由 &amp;lsquo;1&amp;rsquo;（陆地）和 &amp;lsquo;0&amp;rsquo;（水）组成的的二维网格，请你计算网格中岛屿的</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</guid>
+      <description>快速排序 题目描述 给你一个整数数组 nums，请你将该数组升序排列。 示例 ： 1 2 输入：nums = [5,2,3,1] 输出：[1,2,3,5] 题目解析 本题考察的就是排</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACK%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACK%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/</guid>
+      <description>数组中的第K个最大元素 题目描述 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</guid>
+      <description>斐波那切数列 题目描述 斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/</guid>
+      <description>最小的K个数 题目描述 设计一个算法，找出数组中最小的k个数。以任意顺序返回这k个数均可。 示例： 1 2 输入： arr = [1,3,5,7,2,4,6,8], k = 4 输出： [1,2,3,4] 题目解析 2种解法，</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E6%95%B0%E7%BB%84%E6%88%96%E5%AD%90%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E6%95%B0%E7%BB%84%E6%88%96%E5%AD%90%E4%B8%B2/</guid>
+      <description>最长无重复子数组或子串 题目描述 给定一个数组或字符串，求出最长不重复的子数组或子串，‘子’ 指的是连续的，不重复指的是数组和字符串不重复。 比如[</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/</guid>
+      <description>有效的括号 题目描述 给定一个只包括 &amp;lsquo;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&amp;rsquo; 的字符串 s ，判断字符串是否有效。 有效字</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/CAP%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E6%88%90%E7%AB%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/CAP%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E6%88%90%E7%AB%8B/</guid>
+      <description>CAP为什么不能同时成立 CAP概述 分布式系统最多只能满足C（一致性）、A（可用性）和P（分区性）这三者当中的两个。 不能满足的原因 举例： 1.如</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/Redis%E4%B8%8EMysql%E5%8F%8C%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/Redis%E4%B8%8EMysql%E5%8F%8C%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88%E8%A7%A3%E6%9E%90/</guid>
+      <description>Redis与Mysql双写一致性方案解析 先更新数据库，再更新缓存 这套方案大家是普遍发对的，为什么呢？原因有如下2点： 原因一（线程安全角度） 如</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/zookeeper%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/zookeeper%E5%88%86%E4%BA%AB/</guid>
+      <description>Zookeeper 分享 Zookeeper介绍 Zookeeper是什么？ Zookeeper是一个分布式应用协调框架，在分布式系统架构中有广泛的应用场景。 Zoo</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/%E5%91%A8%E4%BC%9A%E5%86%85%E5%AE%B9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/%E5%91%A8%E4%BC%9A%E5%86%85%E5%AE%B9/</guid>
+      <description>周会内容 慧卿分享swagger的接入。 说一下本周工作内容，有想分享的经验和内容可以直接分享。 技术分享。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/%E6%AF%8F%E5%B0%8F%E6%97%B6%E4%B8%80%E6%AC%A1Full-GC-%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%A6%82%E5%BF%B5/%E6%AF%8F%E5%B0%8F%E6%97%B6%E4%B8%80%E6%AC%A1Full-GC-%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</guid>
+      <description>每小时一次Full GC问题排查过程 一、问题描述 大促期间上游反馈接口可用率低，看ump监控发现tp999每隔一小时升高到800ms - 1000m</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/</guid>
+      <description>求x的平方根 题目描述 实现 int sqrt(int x) 函数。 计算并返回 x 的平方根，其中 x 是非负整数。 由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。 示例</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/1TB%E6%95%B0%E6%8D%AE%E6%89%BE%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/1TB%E6%95%B0%E6%8D%AE%E6%89%BE%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
+      <description>1TB数据找中位数 2GB内存。 1.每次从硬盘读取2G数据到内存，把数字转换为2进制。 2.比较首位，首位为0代表正数，首位为1代表负数，这样所</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/1TB%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/1TB%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/</guid>
+      <description>1TB数据排序 10G内存 1.每次排10G内存，并把排序好的数据输出到1个文件内。这样就分了100个文件。 2.创建1个10G的最小堆。 3.遍历</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</guid>
+      <description>环形链表 题目描述 给定一个链表，判断链表中是否有环。 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%98%9F%E5%88%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%98%9F%E5%88%97/</guid>
+      <description>用两个栈实现一个队列 题目描述 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 题目解析 栈：先进后出。 队列：先</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E5%B0%8F%E7%B1%B31/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E5%B0%8F%E7%B1%B31/</guid>
+      <description>xiaomi 一 1、项目介绍 2、项目qps,jvm垃圾回收器，jvm full gc耗时 3、synchronized介绍 4、redis,mysql缓存一致性策略，</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E5%B0%8F%E7%B1%B32/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E5%B0%8F%E7%B1%B32/</guid>
+      <description>第一题: 合并两个有序数组 第二题: 判断一个二叉树，是不是平衡树，并且子节点也是平衡树，平衡树的定义是，根节点比左边所有的节点的值都大，比右边所</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E6%BB%B4%E6%BB%B4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E6%BB%B4%E6%BB%B4/</guid>
+      <description>滴滴两轮车，一面一个半小时 1、项目大概25分钟 2、对象的分配过程 3、sych。。。锁的详细介绍 4、bean的生成过程 4、spring的初始化</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E7%81%AB%E8%8A%B11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E7%81%AB%E8%8A%B11/</guid>
+      <description>一面 面试时间：一个半小时 商品扣库存高并发下，如何解决超卖 spring 如何解决循环依赖 spring事务传播级别 hashmap有什么问题，是到8一定转为红</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E7%9F%A5%E4%B9%8E1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E7%9F%A5%E4%B9%8E1/</guid>
+      <description>知乎 一： 1、项目介绍，砍订单，砍价，好友助力，配置中心客户端，做了哪些工作 2、redis分布式锁，如何实现，会有什么问题，key怎么找到节点</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E7%BB%8F%E9%AA%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BB%8F%E9%AA%8C/%E7%BB%8F%E9%AA%8C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E8%B7%B3%E5%8F%B0%E9%98%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E8%B7%B3%E5%8F%B0%E9%98%B6/</guid>
+      <description>跳台阶 题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。 答案需要取模 1e9+7（1000</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</guid>
+      <description>连续子数组的最大和 题目描述 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。 要求时间复杂度为O(n)。 示</description>
+    </item>
+    
+  </channel>
+</rss>

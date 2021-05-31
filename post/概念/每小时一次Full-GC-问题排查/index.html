@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - 张均杰笔记本</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bsworld" /><meta name="description" content="每小时一次Full GC问题排查过程 一、问题描述 大促期间上游反馈接口可用率低，看ump监控发现tp999每隔一小时升高到800ms - 1000m" /><meta name="keywords" content="Mac, Github, Vue, React, Front End" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%A6%82%E5%BF%B5/%E6%AF%8F%E5%B0%8F%E6%97%B6%E4%B8%80%E6%AC%A1Full-GC-%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/reset-even.css">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="每小时一次Full GC问题排查过程 一、问题描述 大促期间上游反馈接口可用率低，看ump监控发现tp999每隔一小时升高到800ms - 1000m" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%A6%82%E5%BF%B5/%E6%AF%8F%E5%B0%8F%E6%97%B6%E4%B8%80%E6%AC%A1Full-GC-%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="每小时一次Full GC问题排查过程 一、问题描述 大促期间上游反馈接口可用率低，看ump监控发现tp999每隔一小时升高到800ms - 1000m">
+
+<meta itemprop="wordCount" content="1561">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="每小时一次Full GC问题排查过程 一、问题描述 大促期间上游反馈接口可用率低，看ump监控发现tp999每隔一小时升高到800ms - 1000m"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">张均杰笔记本</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a><a href="https://github.com/abxworld/abxworld.github.io">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">张均杰笔记本</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/abxworld/abxworld.github.io">阅读清单</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 00:00 </span>
+        
+          <span class="more-meta"> 约 1561 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一问题描述">一、问题描述</a></li>
+    <li><a href="#二排查过程">二、排查过程</a></li>
+    <li><a href="#三解决方式">三、解决方式</a></li>
+    <li><a href="#四优化结果">四、优化结果</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="0001-01-01T00:00:00" title="January 1, 0001">January 1, 0001</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="每小时一次full-gc问题排查过程">每小时一次Full GC问题排查过程</h1>
+<h2 id="一问题描述">一、问题描述</h2>
+<p>大促期间上游反馈接口可用率低，看ump监控发现tp999每隔一小时升高到800ms - 1000ms，初步怀疑是GC导致的，看JVM监控图Full GC确实每小时有1次，和UMP监控是对的上的。这样已经确定是Full GC导致耗时增高了。	                                                                                                  <br>
+![image-20210421180100046](/每小时一次Full GC 问题排查/image-20210421180100046.png)</p>
+<p>![image-20210421181307431](/每小时一次Full GC 问题排查/image-20210421181307431.png)</p>
+<h2 id="二排查过程">二、排查过程</h2>
+<p>Full GC触发条件：</p>
+<p>（1）System.gc()方法的调用</p>
+<p>（2）老年代空间不足</p>
+<p>（3）方法区空间不足</p>
+<p>（4）通过Minor GC后进入老年代的平均大小大于老年代的可用内存</p>
+<p>（5）由Eden区、From Space区向To Space区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</p>
+<p>看JVM内存监控图发现老年代，元空间，from，to，的内存使用情况都是正常的，故排除 2、3、4、5，故猜测是System.gc导致的，但也只是猜测，需要找到确切证据，于是打印GC日志，GC日志内果然每小时都会出现一个System.gc，![企业微信截图_a2ffda2e-23a5-4657-95ef-1320f55f9b00](/每小时一次Full GC 问题排查/企业微信截图_a2ffda2e-23a5-4657-95ef-1320f55f9b00.png)猜测是业务代码或者代码引入的框架触发的System.gc，但找到具体位置需要看线程堆栈信息，用arthas监控System.gc，在触发的时候打印出线程堆栈信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ts</span><span class="o">=</span><span class="n">2021</span><span class="o">-</span><span class="n">04</span><span class="o">-</span><span class="n">19</span> <span class="n">17</span><span class="o">:</span><span class="n">41</span><span class="o">:</span><span class="n">50</span><span class="o">;</span><span class="n">thread_name</span><span class="o">=</span><span class="n">GC</span> <span class="n">Daemon</span><span class="o">;</span><span class="n">id</span><span class="o">=</span><span class="n">de</span><span class="o">;</span><span class="n">is_daemon</span><span class="o">=</span><span class="kc">true</span><span class="o">;</span><span class="n">priority</span><span class="o">=</span><span class="n">2</span><span class="o">;</span><span class="n">TCCL</span><span class="o">=</span><span class="n">sun</span><span class="o">.</span><span class="na">misc</span><span class="o">.</span><span class="na">Launcher$AppClassLoader</span><span class="nd">@18b4aac2</span>
+    <span class="nd">@java.lang.System.gc</span><span class="o">()</span>
+        <span class="n">at</span> <span class="n">sun</span><span class="o">.</span><span class="na">misc</span><span class="o">.</span><span class="na">GC$Daemon</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">GC</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">109</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>定位到是这个类sun.misc.GC的109行调用的，查看源码发现果然是循环进行周期性的System.gc，且正好是1小时一次。源码见下图。</p>
+<p>![image-20210421183250847](/每小时一次Full GC 问题排查/image-20210421183250847.png)</p>
+<p>![image-20210421185333078](/每小时一次Full GC 问题排查/image-20210421185333078.png)</p>
+<p>![image-20210421185351600](/每小时一次Full GC 问题排查/image-20210421185351600.png)</p>
+<p>看了下源码注释没看懂为什么要这么做，于是google，了解到是RMI会定期触发System.gc，因没研究过RMI所以也看不懂这么做的原因。</p>
+<h2 id="三解决方式">三、解决方式</h2>
+<ol>
+<li>增加参数 -XX:+DisableExplicitGC，这样System.gc()的调用就会变成一个空调用。但是该方法不适用在大量使用NIO的direct memory，网上可以看到使用此参数后造成的内存溢出问题，不太建议用这么粗粒度的禁用方式。</li>
+<li>通过代码可以看出通过增加参数 -Dsun.rmi.dgc.client.gcInterval=3600000 减少FGC， 其中3600000即为定时触发的时间间隔设置，单位是毫秒，即延长触发FGC的定时时间间隔。
+<strong>注：看源码是sun.rmi.dgc.client.gcInterval这个参数控制GC周期的，但是我调高这个参数后发现没用，还是每小时1次，于是在预发布尝试调成2000ms，结果调低后就会生效，每2秒1次FULLGC，于是google，发现有人回答需要设置sun.rmi.dgc.Server.gcInterval参数，于是把这个参数也调大，FULLGC问题解决了。</strong></li>
+</ol>
+<h2 id="四优化结果">四、优化结果</h2>
+<p><!-- raw HTML omitted --></p>
+<p>可以看见TP999更稳定了。</p>
+<p><a href="https://imgtu.com/i/cOWK9P">![cOWK9P.md.png](/每小时一次Full GC 问题排查/cOWK9P.md.png)</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">bsworld</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%A6%82%E5%BF%B5/%E5%91%A8%E4%BC%9A%E5%86%85%E5%AE%B9/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="bsworldx@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/abxworld/abxworld.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bsworld</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
